@@ -13,6 +13,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Swagger 설정
+const servers = [
+  {
+    url: `http://localhost:${PORT}`,
+    description: 'Development server',
+  },
+];
+
+// 프로덕션 서버 URL이 환경 변수로 설정되어 있으면 추가
+if (process.env.PRODUCTION_URL) {
+  servers.push({
+    url: process.env.PRODUCTION_URL,
+    description: 'Production server',
+  });
+}
+
 const swaggerOptions = {
   definition: {
     openapi: '3.0.0',
@@ -24,12 +39,7 @@ const swaggerOptions = {
         name: 'API Support',
       },
     },
-    servers: [
-      {
-        url: `http://localhost:${PORT}`,
-        description: 'Development server',
-      },
-    ],
+    servers: servers,
   },
   apis: ['./routes/*.js'], // Swagger 주석이 있는 파일 경로
 };

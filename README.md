@@ -246,6 +246,8 @@ npm install --production
 nano .env
 
 # DATABASE_URL과 기타 설정 추가
+# 배포된 서버 URL을 Swagger에 추가하려면:
+# PRODUCTION_URL=http://YOUR_SERVER_IP:3000
 ```
 
 ### 4. 데이터베이스 마이그레이션
