@@ -2,6 +2,12 @@
 
 엑셀 데이터를 PostgreSQL 데이터베이스로 마이그레이션하고 RESTful API를 제공하는 프로젝트입니다.
 
+## 🌐 배포된 서버
+
+배포된 서버 정보는 [DEPLOYMENT.md](./DEPLOYMENT.md)를 참고하세요.
+
+배포된 서버 테스트: `npm run test:prod` 또는 환경 변수로 서버 URL 설정
+
 ## 기술 스택
 
 - **Backend**: Node.js + Express.js
@@ -154,6 +160,49 @@ npm start
 - API 서버: http://localhost:3000
 - Swagger 문서: http://localhost:3000/api-docs
 - Health check: http://localhost:3000/health
+
+## API 테스트
+
+### 자동화 테스트 실행
+
+```bash
+npm test
+# 또는
+npm run test:api
+```
+
+이 명령어는 모든 API 엔드포인트를 자동으로 테스트합니다.
+
+### 수동 테스트 방법
+
+자세한 테스트 가이드는 [TEST_GUIDE.md](./TEST_GUIDE.md)를 참고하세요.
+
+**빠른 테스트 (cURL):**
+```bash
+# Health Check
+curl http://localhost:3000/health
+
+# 상품 정보 조회
+curl http://localhost:3000/api/products/PRD-0001
+
+# 회원 정보 조회
+curl http://localhost:3000/api/members/USR-0001
+
+# 회원 주문 및 송장번호 조회
+curl http://localhost:3000/api/orders/member/USR-0001/tracking
+
+# 송장번호로 배송정보 조회
+curl http://localhost:3000/api/shipments/tracking/811518691982
+```
+
+**Postman 사용:**
+1. Postman에서 `postman-collection.json` 파일을 Import
+2. `base_url` 변수를 설정 (기본값: http://localhost:3000)
+3. 각 요청을 실행하여 테스트
+
+**Swagger UI 사용:**
+1. http://localhost:3000/api-docs 접속
+2. 각 API를 클릭하고 "Try it out" 버튼 사용
 
 ## Swagger API 문서
 

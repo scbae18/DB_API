@@ -4,3 +4,6 @@ node_modules/
 .DS_Store
 dist/
 build/
+
+# 배포 관련 파일 (실제 IP 주소가 포함될 수 있음)
+# test-production.js는 포함하되, 실제 IP는 환경 변수로 관리

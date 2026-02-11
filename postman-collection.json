@@ -1,0 +1,139 @@
+{
+  "info": {
+    "name": "Shopping Mall API",
+    "description": "쇼핑몰 데이터베이스 API 컬렉션",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/health",
+          "host": ["{{base_url}}"],
+          "path": ["health"]
+        }
+      }
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "상품 정보 조회",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/products/PRD-0001",
+              "host": ["{{base_url}}"],
+              "path": ["api", "products", "PRD-0001"]
+            },
+            "description": "상품ID로 상품 정보를 조회합니다."
+          }
+        },
+        {
+          "name": "존재하지 않는 상품 조회",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/products/PRD-9999",
+              "host": ["{{base_url}}"],
+              "path": ["api", "products", "PRD-9999"]
+            },
+            "description": "존재하지 않는 상품 조회 (404 에러 테스트)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Members",
+      "item": [
+        {
+          "name": "회원 정보 조회",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/members/USR-0001",
+              "host": ["{{base_url}}"],
+              "path": ["api", "members", "USR-0001"]
+            },
+            "description": "회원ID로 회원 정보를 조회합니다."
+          }
+        },
+        {
+          "name": "존재하지 않는 회원 조회",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/members/USR-9999",
+              "host": ["{{base_url}}"],
+              "path": ["api", "members", "USR-9999"]
+            },
+            "description": "존재하지 않는 회원 조회 (404 에러 테스트)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "회원 주문 및 송장번호 조회",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/orders/member/USR-0001/tracking",
+              "host": ["{{base_url}}"],
+              "path": ["api", "orders", "member", "USR-0001", "tracking"]
+            },
+            "description": "회원ID로 주문ID를 조회한 후, 주문ID로 송장번호를 조회합니다."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Shipments",
+      "item": [
+        {
+          "name": "송장번호로 배송정보 조회",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/shipments/tracking/811518691982",
+              "host": ["{{base_url}}"],
+              "path": ["api", "shipments", "tracking", "811518691982"]
+            },
+            "description": "송장번호로 배송정보를 조회합니다."
+          }
+        },
+        {
+          "name": "존재하지 않는 송장번호 조회",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/api/shipments/tracking/000000000000",
+              "host": ["{{base_url}}"],
+              "path": ["api", "shipments", "tracking", "000000000000"]
+            },
+            "description": "존재하지 않는 송장번호 조회 (404 에러 테스트)"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ]
+}
