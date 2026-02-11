@@ -1,0 +1,36 @@
+{
+  "name": "db_api",
+  "version": "1.0.0",
+  "description": "Shopping Mall API with PostgreSQL and Express",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "migrate": "node scripts/migrate-excel-to-db.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scbae18/DB_API.git"
+  },
+  "keywords": ["api", "express", "postgresql", "swagger"],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/scbae18/DB_API/issues"
+  },
+  "homepage": "https://github.com/scbae18/DB_API#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "pg": "^8.11.3",
+    "dotenv": "^16.3.1",
+    "xlsx": "^0.18.5",
+    "swagger-ui-express": "^5.0.0",
+    "swagger-jsdoc": "^6.2.8",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
